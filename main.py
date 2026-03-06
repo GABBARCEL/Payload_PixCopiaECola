@@ -9,11 +9,11 @@ janela.title("Pix copia e cola")
 janela.geometry("800x600")
 
 
-#CHAT GPT
+# Tomei vergonha na cara, e aprendi o que significa
 janela.grid_columnconfigure(0, weight=1)
 janela.grid_columnconfigure(1, weight=1)
 
-# Isso aqui modifica conforme o código roda
+# Isso aqui deve modificar conforme o código roda. Serve para orientar o usuário como anda o processo, por isso começa em branco
 LabelErro = CTK.CTkLabel(janela, text=f"", text_color="red")
 
 def CommandQrcode():

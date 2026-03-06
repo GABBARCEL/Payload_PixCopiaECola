@@ -1,7 +1,7 @@
 import qrcode
 from PIL import Image
 
-def genQrCode(url) -> Image.Image:
+def genQrCode(url):
     qr = qrcode.QRCode(
         version=1,
         box_size=10,

@@ -1,18 +1,18 @@
 import unicodedata
 
-def normalize(texto: str, max_len=25) -> str:
+def normalize(texto: str, max_len=25):
     texto = unicodedata.normalize("NFKD", texto)
     texto = texto.encode("ASCII", "ignore").decode("ASCII")
     return texto.upper()[:max_len]
 
-def format_valor(valor: float) -> str:
+def format_valor(valor: float):
     return f"{valor:.2f}"
 
 
-def emv_field(tag: str, valor: str) -> str:
+def emv_field(tag: str, valor: str):
     return f"{tag}{len(valor):02d}{valor}"
 
-def crc16_ccitt(payload: str) -> str:
+def crc16_ccitt(payload: str):
     crc = 0xFFFF
     for b in payload.encode("utf-8"):
         crc ^= b << 8
@@ -20,7 +20,7 @@ def crc16_ccitt(payload: str) -> str:
             crc = ((crc << 1) ^ 0x1021) & 0xFFFF if crc & 0x8000 else (crc << 1) & 0xFFFF
     return f"{crc:04X}"
 
-def genLink(chavePix: str, valor: float, nome: str, cidade: str, txtId: str = "***") -> str:
+def genLink(chavePix: str, valor: float, nome: str, cidade: str, txtId: str = "***"):
     nome = normalize(nome)
     cidade = normalize(cidade)
     txtId = normalize(txtId.replace(" ", ""))
